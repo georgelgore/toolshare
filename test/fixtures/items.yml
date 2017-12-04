@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  brand: MyString
+  classification: MyString
+  cost_daily: 1.5
+  cost_hourly: 1.5
+  available: false
+
+two:
+  name: MyString
+  brand: MyString
+  classification: MyString
+  cost_daily: 1.5
+  cost_hourly: 1.5
+  available: false
