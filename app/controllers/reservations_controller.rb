@@ -9,7 +9,7 @@ class ReservationsController < ApplicationController
   end
 
   def new
-    @reservation = Reservation.new(reservation_params)
+    @reservation = Reservation.new
   end
 
   def create

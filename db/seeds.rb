@@ -6,11 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Location.destroy_all
-User.destroy_all
-Item.destroy_all
-Reservation.destroy_all
 Review.destroy_all
+Reservation.destroy_all
+Item.destroy_all
+User.destroy_all
+Location.destroy_all
 
 manhattan = Location.create(name: "Manhattan")
 brooklyn = Location.create(name: "Brooklyn")
