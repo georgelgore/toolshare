@@ -1,3 +1,8 @@
+<%=link_to "Locations", locations_path%>
+<%=link_to "Tool Types", tool_types_path%>
+<%=link_to "Book New Reservation", new_reservation_path%>
+
+
 <h1><%= @tool_type.name %></h1>
 <ul>
   <% @tool_type.items.each do |item| %>
