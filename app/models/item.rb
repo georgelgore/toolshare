@@ -13,4 +13,9 @@ class Item < ApplicationRecord
   validates :available, presence: true
   validates :location_id, presence: true
 
+
+  def name_with_price
+    "#{self.name} - $#{self.cost_daily} "
+  end
+
 end

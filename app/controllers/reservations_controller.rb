@@ -10,11 +10,14 @@ class ReservationsController < ApplicationController
 
   def new
     @reservation = Reservation.new
+
   end
 
   def create
     # update with validation
-    @reservation = Reservation.create(reservation_params)
+    @reservation = Reservation.new(reservation_params)
+    byebug
+    # if @reservation.valid?
   end
 
   def edit
