@@ -1,8 +1,8 @@
 <h1>Reservations Index</h1>
 <% @reservations.each do |res| %>
-  <div style="border: 1px solid lightgray; padding: 20px; width: 300px">    
+  <div style="border: 1px solid lightgray; padding: 20px; width: 300px">
     Customer: <%= res.user.name %><br>
-    Item: <%= res.item_id %><br>
+    Item: <%= res.item.name %><br>
     Start Date: <%= res.start_date %><br>
     End Date: <%= res.end_date %><br>
     Total Cost: <%= res.total_cost %><br>
