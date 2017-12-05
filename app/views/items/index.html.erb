@@ -3,10 +3,10 @@
   <ul>
     <h2><%=link_to item.name, item_path(item)%></h2>
     <h3>Brand:<li><%=item.brand%></li></h3>
-    <h3>Tool Type: <li><%=item.tool_type.name%></li></h3>
-    <h3>Daily Cost:<li><%=item.cost_daily%></li></h3>
-    <h3>Hourly Cost:<li><%=item.cost_hourly%></li></h3>
+    <h3>Tool Type: <li><%=link_to item.tool_type.name, tool_type_path(item.tool_type)%></li></h3>
+    <h3>Daily Cost:<li>$<%=item.cost_daily%></li></h3>
+    <h3>Hourly Cost:<li>$<%=item.cost_hourly%></li></h3>
     <h3>Availability:<li><%=item.available%></li></h3>
-    <h3>Location:<li><%=item.location.name%></li></h3>
+    <h3>Location:<li><%=link_to item.location.name, location_path(item.location)%></li></h3>
   </ul>
 <%end%>
