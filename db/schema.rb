@@ -10,19 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171204223219) do
+ActiveRecord::Schema.define(version: 20171205163039) do
 
   create_table "items", force: :cascade do |t|
     t.string "name"
     t.string "brand"
-    t.string "classification"
     t.float "cost_daily"
     t.float "cost_hourly"
     t.boolean "available"
     t.integer "location_id"
+    t.integer "tool_type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["location_id"], name: "index_items_on_location_id"
+    t.index ["tool_type_id"], name: "index_items_on_tool_type_id"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -50,6 +51,12 @@ ActiveRecord::Schema.define(version: 20171204223219) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["reservation_id"], name: "index_reviews_on_reservation_id"
+  end
+
+  create_table "tool_types", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

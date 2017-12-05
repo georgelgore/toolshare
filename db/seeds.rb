@@ -12,15 +12,18 @@ Item.destroy_all
 Reservation.destroy_all
 Review.destroy_all
 
-Location.create(name: "Manhattan")
-Location.create(name: "Brooklyn")
-Location.create(name: "Queens")
-Location.create(name: "Bronx")
+manhattan = Location.create(name: "Manhattan")
+brooklyn = Location.create(name: "Brooklyn")
+queens = Location.create(name: "Queens")
+bronx = Location.create(name: "Bronx")
+staten_island = Location.create(name: "Staten Island")
 
-User.create(name: "George", email: "george@george.com", password: "george", location_id: 2)
+george = User.create(name: "George", email: "george@george.com", password: "george", location: brooklyn)
 
-Item.create(name: '20 oz. Straight-Claw Rip Hammer', brand: 'Estwing', classification: 'hammer', cost_daily: 5.0, cost_hourly: 1.0, available: true, location_id: 2)
+hammer = ToolType.create(name: "Hammer")
 
-Reservation.create(user_id: 1, item_id: 1, start_date: 'Mon, 04 Dec 2017 00:00:00 -0500', end_date:'Tues, 05 Dec 2017 00:00:00 -0500', total_cost: 5.0)
+hammer1 = Item.create(name: '20 oz. Straight-Claw Rip Hammer', brand: 'Estwing', cost_daily: 5.0, cost_hourly: 1.0, available: true, location: brooklyn, tool_type: hammer)
 
-Review.create(reservation_id: 1, content: "It worked!", rating: 7)
+res1 = Reservation.create(user: george, item: hammer1, start_date: 'Mon, 04 Dec 2017 00:00:00 -0500', end_date:'Tues, 05 Dec 2017 00:00:00 -0500', total_cost: 5.0)
+
+rev1 = Review.create(reservation: rev1, content: "It worked!", rating: 7)
