@@ -1,9 +1,10 @@
 <h1>Users</h1>
 <% @users.each do |user| %>
 <ul>
+  <h3> Name: <%= user.name %></h3>
   <h3> Email Address: <%= user.email %></h3>
   <h3> Password: <%= user.password %></h3>
-  <h3> User Location: <%= user.location.name %></h3>
+  <h3> User Location: <%= link_to user.location.name, location_path(user.location) %></h3><br><br>
 
 </ul>
 <% end %>
