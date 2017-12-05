@@ -1,7 +1,6 @@
 class ReservationsController < ApplicationController
   def index
     @reservations = Reservation.all
-    byebug
   end
 
   def show
