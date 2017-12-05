@@ -8,5 +8,7 @@ Rails.application.routes.draw do
 
   resources :tool_types, only: [:index, :show]
 
+  get "/", to: "root#welcome"
+
 
 end
