@@ -5,7 +5,7 @@
   <%=f.collection_select :user_id, User.all, :id, :name %><br><br>
 
   <%=f.label :item_name %><br>
-  <%=f.collection_select :item_id, Item.all, :id, :name %><br><br>
+  <%=f.collection_select :item_id, Item.all, :id, :name_with_price %><br><br>
 
   <%=f.label :start_date %><br>
   <%=f.date_field :start_date %><br><br>

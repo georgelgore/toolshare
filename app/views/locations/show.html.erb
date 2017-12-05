@@ -1,0 +1,7 @@
+<h1><%= @location.name %></h1>
+<h2>Tools:</h2>
+<% @location.items.each do |item|%>
+  <ul>
+    <li><%= link_to item.name, item_path(item) if item.available %></li>
+  </ul>
+<% end %>

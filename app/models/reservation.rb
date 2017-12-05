@@ -9,4 +9,5 @@ class Reservation < ApplicationRecord
   validates :end_date, presence: true
   validates :total_cost, presence: true
 
+
 end
