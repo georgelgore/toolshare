@@ -32,4 +32,4 @@ hammer2 = Item.create(name: '16 oz. Balpene Hammer', brand: 'Cobalt', cost_daily
 res1 = Reservation.create(user: george, item: hammer1, start_date: 'Mon, 04 Dec 2017 00:00:00 -0500', end_date:'Tues, 05 Dec 2017 00:00:00 -0500', total_cost: 5.0)
 res2 = Reservation.create(user: dan, item: hammer2, start_date: 'Sun, 03 Dec 2017 00:00:00 -0500', end_date:'Wed, 06 Dec 2017 00:00:00 -0500', total_cost: 5.0)
 
-rev1 = Review.create(reservation: rev1, content: "It worked!", rating: 7)
+rev1 = Review.create(reservation: res1, content: "It worked!", rating: 7)

@@ -1,4 +1,5 @@
 class ToolTypesController < ApplicationController
+  
   def index
     @tool_types = ToolType.all
   end

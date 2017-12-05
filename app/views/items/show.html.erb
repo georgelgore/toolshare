@@ -11,4 +11,8 @@
   <h3>Hourly Cost:<li>$<%=@item.cost_hourly%></li></h3>
   <h3>Availability:<li><%=@item.available%></li></h3>
   <h3>Location:<li><%=link_to @item.location.name, location_path(@item.location)%></li></h3>
+  <% @item.reservations.each do |reservation| %>
+      <li><%= reservation.review.content %></li>
+      <li><%= reservation.review.rating %></li>
+  <% end %>
 </ul>
