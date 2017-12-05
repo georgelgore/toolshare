@@ -9,6 +9,6 @@
 <%= f.label :password %>
 <%= f.text_field :password %><br>
 <%= f.label :location %>
-<%= f.text_field :location %><br>
+<%= f.collection_select :location_id, Location.all, :id, :name %><br>
 <%= f.submit %>
 <% end %>
