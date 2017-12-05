@@ -6,5 +6,4 @@ class Review < ApplicationRecord
   validates :content, length: { minimum: 5 }
   validates :rating, presence: true
   validates :rating, numericality: true
-  validates_inclusion_of :rating, :inclusion => 1..10
 end

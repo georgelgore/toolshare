@@ -16,4 +16,5 @@ class Reservation < ApplicationRecord
       errors.add(:valid_until, "must be later than start date")
     end
   end
+  
 end
