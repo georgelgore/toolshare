@@ -1,0 +1,9 @@
+<h1>Tools by Type:</h1>
+
+<ul>
+  <% @tool_types.each do |tool_type| %>
+  <li>
+    <%= link_to tool_type.name, tool_type_path(tool_type) %> | <%= tool_type.items.select{|x| x.available == true}.count %>
+  </li>
+  <% end %>
+</ul>
