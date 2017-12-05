@@ -1,6 +1,8 @@
 <h1>Reservation Show</h1>
-Customer: <%= @reservation.user.name %><br><br>
-Item: <%= @reservation.item.name %><br><br>
-Start Date: <%= @reservation.start_date %><br><br>
-End Date: <%= @reservation.end_date %><br><br>
-Total Cost: $<%= @reservation.total_cost %><br><br>
+  <div style="border: 1px solid lightgray; padding: 20px; width: 300px">
+    Customer: <%= @reservation.user.name %><br><br>
+    Item: <%= @reservation.item.name %><br><br>
+    Start Date: <%= @reservation.start_date %><br><br>
+    End Date: <%= @reservation.end_date %><br><br>
+    Total Cost: $<%= @reservation.total_cost %><br><br>
+  </div>

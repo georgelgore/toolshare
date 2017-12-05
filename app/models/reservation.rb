@@ -10,4 +10,9 @@ class Reservation < ApplicationRecord
   validates :total_cost, presence: true
 
 
+  # def total_cost
+  #   @number_of_days = self.end_date - self.start_date
+  #   @rate = self.item.cost_daily
+  #   @number_of_days * @rate
+  # end
 end

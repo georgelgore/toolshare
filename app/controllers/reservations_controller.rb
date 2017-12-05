@@ -1,7 +1,7 @@
 class ReservationsController < ApplicationController
   def index
     @reservations = Reservation.all
-    # byebug
+    byebug
   end
 
   def show
@@ -14,10 +14,13 @@ class ReservationsController < ApplicationController
   end
 
   def create
-    # update with validation
     @reservation = Reservation.new(reservation_params)
-    byebug
-    # if @reservation.valid?
+    if @reservation.valid?
+      @reservation.save
+      redirect_to reservation_path(@reservation.id)
+    else
+      redirect_to :new
+    end
   end
 
   def edit
