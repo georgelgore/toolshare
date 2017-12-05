@@ -14,10 +14,10 @@
   <h3>Location:<li><%=link_to @item.location.name, location_path(@item.location)%></li></h3>
   <h3>Reviews:</h3>
   <% @item.reservations.each do |reservation| %>
-      <li><%= reservation.user.name %></li>
       <% reservation.reviews.each do |review| %></li>
-      <li>Review: <%= review.content %></li>
-      <li>Score: <%= review.rating %></li>
+      <li><%= reservation.user.name%></li>
+      <li>Review: <%= review.content if review.content %></li>
+      <li>Score: <%= review.rating if review.rating%></li>
       <% end %>
   <% end %>
 </ul>

@@ -9,7 +9,9 @@ class Item < ApplicationRecord
   validates :brand, presence: true
   validates :tool_type_id, presence: true
   validates :cost_daily, presence: true
+  validates :cost_daily, numericality: true
   validates :cost_hourly, presence: true
+  validates :cost_hourly, numericality: true
   validates :available, presence: true
   validates :location_id, presence: true
 
