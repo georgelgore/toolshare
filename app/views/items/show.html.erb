@@ -1,3 +1,4 @@
+<%=link_to "Back To Items", items_path%>
 <%=link_to "Locations", locations_path%>
 <%=link_to "Tool Types", tool_types_path%>
 <%=link_to "Book New Reservation", new_reservation_path%>
@@ -11,8 +12,12 @@
   <h3>Hourly Cost:<li>$<%=@item.cost_hourly%></li></h3>
   <h3>Availability:<li><%=@item.available%></li></h3>
   <h3>Location:<li><%=link_to @item.location.name, location_path(@item.location)%></li></h3>
+  <h3>Reviews:</h3>
   <% @item.reservations.each do |reservation| %>
-      <li><%= reservation.review.content %></li>
-      <li><%= reservation.review.rating %></li>
+      <li><%= reservation.user.name %></li>
+      <% reservation.reviews.each do |review| %></li>
+      <li>Review: <%= review.content %></li>
+      <li>Score: <%= review.rating %></li>
+      <% end %>
   <% end %>
 </ul>
