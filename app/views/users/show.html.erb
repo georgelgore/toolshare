@@ -1,0 +1,9 @@
+<h1><%= @user.name %></h1>
+<ul>
+  <h3> Email Address: <%= @user.email %></h3>
+  <h3> Password: <%= @user.password %></h3>
+  <h3> User Location: <%= @user.location.name %></h3>
+  <h3> User Items: </h3><%@user.items.each do |item| %>
+  <h3><li><%= item.name %></li></h3>
+  <% end %>
+</ul>
