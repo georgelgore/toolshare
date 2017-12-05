@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   resources :reviews, only: [:index, :show, :new, :create, :edit, :update]
   resources :users, only: [:index, :show, :new, :create, :edit, :update]
 
-  resources :tool_types, only: [:index, :show]
+  resources :tool_types, :path => "tool-types", only: [:index, :show]
+
+  get "/", to: "root#welcome"
 
 
 end
