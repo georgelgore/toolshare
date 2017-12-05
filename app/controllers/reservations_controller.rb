@@ -28,7 +28,7 @@ class ReservationsController < ApplicationController
       @reservation.save
       redirect_to reservation_path(@reservation.id)
     else
-      redirect_to :new
+      redirect_to new_reservation_path
     end
   end
 
