@@ -1,10 +1,10 @@
 <%=link_to "Tool Types", tool_types_path%>
 <%=link_to "Book New Reservation", new_reservation_path%>
 
-<h1>Locations</h1>
+<h1>Our Locations</h1>
 
   <% @locations.each do |location| %>
   <ul>
-    <h2><li><%= link_to location.name, location_path(location) %></li></h2>
+    <h2><%= link_to location.name, location_path(location) %></h2>
   </ul>
   <% end %>
