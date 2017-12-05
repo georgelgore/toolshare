@@ -1,0 +1,7 @@
+<h1>Customer Product Review</h1>
+<ul>
+  <li>Item: <%= link_to @review.reservation.item.name, item_path(@review.reservation.item) %></li>
+  <li>Reviewer: <%= @review.reservation.user.name %></li>
+  <li>Rating: <%= @review.rating%></li>
+  <li>Description: <%= @review.content%></li>
+</ul>
