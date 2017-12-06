@@ -7,7 +7,6 @@
 <h1><%= @user.name %></h1>
 <ul>
   <h3> Email Address: <%= @user.email %></h3>
-  <h3> Password: <%= @user.password %></h3>
   <h3> User Location: <%= link_to @user.location.name, location_path(@user.location) %></h3>
   <h3> User Items: </h3><%@user.items.each do |item| %>
   <ul>
