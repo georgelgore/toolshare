@@ -68,8 +68,8 @@ ActiveRecord::Schema.define(version: 20171206204052) do
     t.integer "location_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "password_digest"
     t.string "image_url", default: "profile/placeholder.png"
+    t.string "password_digest"
     t.index ["location_id"], name: "index_users_on_location_id"
   end
 

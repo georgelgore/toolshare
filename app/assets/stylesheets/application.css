@@ -60,3 +60,7 @@ a {
   border-radius: 100px;
   overflow: hidden;
 }
+
+.btn-primary {
+  background: rgb(98,151,176)
+}

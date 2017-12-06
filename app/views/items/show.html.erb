@@ -9,21 +9,32 @@
 
 <h1><%=@item.name%></h1>
 
-<div>
-  <%= image_tag("#{@item.image_url}", :size=> '100x100') %>
-</div>
+<div class="row" style="min-width: 600px">
 
-<ul>
-  <h3>Brand:<li><%=@item.brand%></li></h3>
-  <h3>Tool Type:<li><%=link_to @item.tool_type.name, tool_type_path(@item.tool_type)%></li></h3>
-  <h3>Daily Cost:<li>$<%=@item.cost_daily%></li></h3>
-  <h3>Hourly Cost:<li>$<%=@item.cost_hourly%></li></h3>
-  <h3>Available:<li><%=@item.available%></li></h3>
-  <h3>Location:<li><%=link_to @item.location.name, location_path(@item.location)%></li></h3>
-  <h3>Reviews:</h3>
-  <% @item.get_reviews.each do |review| %>
-      <li><%= review.reservation.user.name%></li>
-      <li>Review: <%= review.content if review.content %></li>
-      <li>Score: <%= review.rating if review.rating%></li>
-  <% end %>
-</ul>
+      <div class="col-md-4" style="min-width: 300px"/> <%= image_tag("#{@item.image_url}", :size=> '300x200') %>
+      </div>
+
+      <div class="col-md-4" style="margin-left: 40px">
+        <h4 class="card-text">Brand: <%=@item.brand%></h4>
+        <h4 class="card-text">Tool Type: <%=link_to @item.tool_type.name, tool_type_path(@item.tool_type)%></h4>
+        <h4 class="card-text">Daily Cost: $<%=@item.cost_daily%></h4>
+        <h4 class="card-text">Hourly Cost: $<%=@item.cost_hourly%></h4>
+        <h4 class="card-text">Available: <%=@item.available%></h4>
+        <h4 class="card-text">Location: <%=link_to @item.location.name, location_path(@item.location)%></h4>
+      </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-6" style="margin-left: 40px">
+      <h3>Reviews:</h3>
+      <% @item.get_reviews.each do |review| %>
+      <span style="font-weight: bold"><%= review.reservation.user.name%></span> says
+      <span style="font-weight: bold">"<%= review.content if review.content %>"</span><br>
+      Score: <%= review.rating if review.rating%>/10
+      <% end %>
+    </div>
+  </div><br><br>
+
+
+<a href="#" class="btn btn-primary">Go somewhere</a>
