@@ -1,7 +1,11 @@
-<%=link_to "Back To Items", items_path%>
-<%=link_to "Locations", locations_path%>
-<%=link_to "Tool Types", tool_types_path%>
-<%=link_to "Book New Reservation", new_reservation_path%>
+<div class="clearnav navbar navbar-default">
+  <ul class="nav navbar-nav">
+    <li><%=link_to "Back To Items", items_path%></li>
+    <li><%=link_to "Locations", locations_path%></li>
+    <li><%=link_to "Tool Types", tool_types_path%></li>
+    <li><%=link_to "Book New Reservation", new_reservation_path%></li>
+  </ul>
+</div>
 
 <h1><%=@item.name%></h1>
 
