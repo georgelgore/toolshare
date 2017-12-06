@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171206202608) do
+ActiveRecord::Schema.define(version: 20171206204052) do
 
   create_table "items", force: :cascade do |t|
     t.string "name"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20171206202608) do
     t.integer "tool_type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_url", default: "background/moretools.png"
     t.index ["location_id"], name: "index_items_on_location_id"
     t.index ["tool_type_id"], name: "index_items_on_tool_type_id"
   end
