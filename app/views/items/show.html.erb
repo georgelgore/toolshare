@@ -9,6 +9,10 @@
 
 <h1><%=@item.name%></h1>
 
+<div>
+  <%= image_tag("#{@item.image_url}", :size=> '100x100') %>
+</div>
+
 <ul>
   <h3>Brand:<li><%=@item.brand%></li></h3>
   <h3>Tool Type:<li><%=link_to @item.tool_type.name, tool_type_path(@item.tool_type)%></li></h3>
