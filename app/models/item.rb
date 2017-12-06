@@ -20,4 +20,9 @@ class Item < ApplicationRecord
     "#{self.name} - $#{self.cost_daily} "
   end
 
+  def average_rating
+    ratings = self.reviews.collect{|review|review.rating}
+    ratings.inject{ |sum, el| sum + el }.to_f / ratings.size
+  end
+
 end
