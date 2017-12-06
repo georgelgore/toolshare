@@ -18,9 +18,9 @@ queens = Location.create(name: "Queens")
 bronx = Location.create(name: "Bronx")
 staten_island = Location.create(name: "Staten Island")
 
-george = User.create(name: "George", email: "george@george.com", password: "george", location: brooklyn)
-dan = User.create(name: "Dan", email: "dan@dan.com", password: "dandan", location: queens)
-paul = User.create(name: "Paul", email: "paul@paul.com", password: "paulpaul", location: manhattan)
+george = User.create(name: "George", email: "george@george.com", password: "george", location: brooklyn, image_url: 'profile/george.png')
+dan = User.create(name: "Dan", email: "dan@dan.com", password: "dandan", location: queens, image_url: 'profile/dan.png')
+paul = User.create(name: "Paul", email: "paul@paul.com", password: "paulpaul", location: manhattan, image_url: 'profile/paul.png')
 
 hammer = ToolType.create(name: "Hammer")
 drill = ToolType.create(name: "Drill")

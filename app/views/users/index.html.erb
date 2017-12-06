@@ -16,6 +16,6 @@
 </ul>
 
 <div class="profile_pic">
-  <%= image_tag("profile/#{user.name.downcase}.png", :size=> '100x100') %>
+  <%= image_tag("#{user.image_url}", :size=> '100x100') %>
 </div>
 <% end %>
