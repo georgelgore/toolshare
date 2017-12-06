@@ -25,4 +25,10 @@ class Item < ApplicationRecord
     ratings.inject{ |sum, el| sum + el }.to_f / ratings.size
   end
 
+  def get_reviews
+    self.reservations.each do |reservation|
+      return reservation.reviews
+    end
+  end
+
 end

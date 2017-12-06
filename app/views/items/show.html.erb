@@ -13,11 +13,9 @@
   <h3>Available:<li><%=@item.available%></li></h3>
   <h3>Location:<li><%=link_to @item.location.name, location_path(@item.location)%></li></h3>
   <h3>Reviews:</h3>
-  <% @item.reservations.each do |reservation| %>
-      <% reservation.reviews.each do |review| %></li>
-      <li><%= reservation.user.name%></li>
+  <% @item.get_reviews.each do |review| %>
+      <li><%= review.reservation.user.name%></li>
       <li>Review: <%= review.content if review.content %></li>
       <li>Score: <%= review.rating if review.rating%></li>
-      <% end %>
   <% end %>
 </ul>
