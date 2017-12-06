@@ -1,15 +1,20 @@
 class ReservationsController < ApplicationController
-  def index
-    @reservations = Reservation.all
-  end
+  before_action :authorized
+
+  # def index
+  #   @reservations = Reservation.all
+  # end
 
   def show
-    @reservation = Reservation.find(params[:id])
+    if current_user.id == params[:id]
+      @reservation = Reservation.find(params[:id])
+    else
+      redirect_to new_reservation_path
+    end
   end
 
   def new
     @reservation = Reservation.new
-
   end
 
   def create
@@ -58,5 +63,12 @@ class ReservationsController < ApplicationController
     days_rented * item_daily_cost
   end
 
-  
+  def authorized
+  if logged_in?
+  else
+    redirect_to signin_path
+  end
+end
+
+
 end
