@@ -9,6 +9,9 @@
   <h3> Email Address: <%= user.email %></h3>
   <h3> Password: <%= user.password %></h3>
   <h3> User Location: <%= link_to user.location.name, location_path(user.location) %></h3><br><br>
-
 </ul>
+
+<div class="profile_pic">
+  <%= image_tag("profile/#{user.name.downcase}.png", :size=> '100x100') %>
+</div>
 <% end %>
