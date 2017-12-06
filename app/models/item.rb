@@ -31,8 +31,25 @@ class Item < ApplicationRecord
     end
   end
 
-  def self.unique_brands
-    Item.all.map{|item| item.brand}.uniq
+
+  def self.filter_by_location(location)
+    return Item.all if location.zero?
+    Item.all.select{|item| item.location.id == location}
+  end
+
+  def self.filter_by_tool_type_id(tool_type)
+    return Item.all if tool_type.zero?
+    Item.all.select{|item| item.tool_type_id == tool_type}
+  end
+
+  def self.filter_by_min_cost(min_cost)
+    return Item.all if min_cost.zero?
+    Item.all.select{|item| item.cost_daily > min_cost}
+  end
+
+  def self.filter_by_max_cost(max_cost)
+    return Item.all if max_cost.zero?
+    Item.all.select{|item| item.cost_daily > max_cost}
   end
 
 end
