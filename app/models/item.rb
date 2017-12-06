@@ -31,4 +31,8 @@ class Item < ApplicationRecord
     end
   end
 
+  def self.unique_brands
+    Item.all.map{|item| item.brand}.uniq
+  end
+
 end
