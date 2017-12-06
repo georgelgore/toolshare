@@ -6,7 +6,7 @@ class ReservationsController < ApplicationController
   # end
 
   def show
-    if current_user.id == params[:id]
+    if current_user.id == Reservation.find(params[:id]).user_id
       @reservation = Reservation.find(params[:id])
     else
       redirect_to new_reservation_path
@@ -14,6 +14,7 @@ class ReservationsController < ApplicationController
   end
 
   def new
+    @current_user = current_user
     @reservation = Reservation.new
   end
 
@@ -31,7 +32,7 @@ class ReservationsController < ApplicationController
       @reservation.item.available = false
       # currently, we have no switch to make reservation item status return to true.
       @reservation.save
-      redirect_to reservation_path(@reservation.id)
+      redirect_to reservation_path(@reservation)
     else
       redirect_to new_reservation_path
     end
