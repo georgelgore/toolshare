@@ -41,7 +41,7 @@ a {
   margin: 100px 0px;
   padding: 20px;
   background-color: rgba(245,245,245,0.7);
-  width: 500px;
+  min-width: 500px;
 }
 
 .clearnav {
