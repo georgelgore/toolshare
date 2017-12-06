@@ -5,7 +5,11 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
+    if params["item"]
+      @tool_type = Item.find_by(name: params[:name])
+    else
+      @item = Item.find(params[:id])
+    end
   end
 
 end

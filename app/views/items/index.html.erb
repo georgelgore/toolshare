@@ -1,6 +1,14 @@
 <%=link_to "Locations", locations_path%>
 <%=link_to "Book New Reservation", new_reservation_path%>
 
+<p>Filter </p>
+<%= form_tag(item_path("item"), method: "get") do %>
+<%= select_tag "brands", options_from_collection_for_select(@items, "id", "name") %>
+<%= submit_tag %>
+<% end %>
+
+
+
 <h1>Items</h1>
 <% @items.each do |item| %>
   <ul>
