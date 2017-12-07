@@ -1,10 +1,9 @@
 <div class="clearnav navbar navbar-default">
   <ul class="nav navbar-nav">
-    <li><%=link_to "Book New Reservation", new_reservation_path%></li>
+    <li><h1><%= @user.name %></h1></li>
   </ul>
 </div>
 
-<h1><%= @user.name %></h1>
 <ul>
   <li><h3> Email Address: <%= @user.email %></h3></li>
   <li><h3> User Location: <%= link_to @user.location.name, location_path(@user.location) %></h3></li>
@@ -14,7 +13,7 @@
     <ul>
 
       <li><h4>Reservation Dates:</h4> <%= reservation.start_date.strftime('%A, %B  %dth, %Y')%> - <%= reservation.end_date.strftime('%A, %B  %dth, %Y')%></li>
-      <li><h4>Total Cost:</h4> $<%= reservation.total_cost%></li><br>
+      <li><h4>Total Cost:</h4> $<%= '%.2f' % reservation.total_cost%></li><br>
       <%= link_to '<button type="button">Edit Reservation</button>'.html_safe, edit_reservation_path(reservation)%>
       <%= link_to '<button type="button">Cancel Reservation</button>'.html_safe, reservation, :method => :delete%>
     </ul>
@@ -30,5 +29,20 @@
       <li><h4>Total Cost:</h4> $<%= reservation.total_cost%></li>
     </ul>
   <% end %>
+  </li>
+
+  <li>
+    <h3> Completed Reviews: </h3>
+    <ul>
+    <% @user.reviews.each do |review| %>
+    <li>
+    <h4><%= review.reservation.item.name %></h4>
+    <ul>
+      <li>Rating: <%= review.rating %></li>
+      <li>Content: <%= review.content %></li>
+    </ul>
+    </li>
+    <% end %>
+    </ul>
   </li>
 </ul>
