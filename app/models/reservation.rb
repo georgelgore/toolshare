@@ -17,8 +17,4 @@ class Reservation < ApplicationRecord
     end
   end
 
-  def change_reviewed
-    self.reviewed = !self.reviewed
-  end
-
 end

@@ -16,9 +16,9 @@
       <li>End Date: $<%= reservation.end_date%></li>
       <li>Total Cost: $<%= reservation.total_cost%></li>
     </ul>
+    </li>
+      </ul>
   <% end %>
-  </li>
-  </ul>
   <li><h3> Completed Reservations: </h3><%@user.reservations.where(completed: true).each do |reservation| %>
   <ul>
     <h4><li><%= link_to reservation.item.name, reservation_path(reservation) %></li></h4>
