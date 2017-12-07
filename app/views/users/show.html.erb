@@ -12,11 +12,12 @@
   <ul>
     <h4><li><%= link_to reservation.item.name, reservation_path(reservation) %></li></h4>
     <ul>
-      <li>Start Date: <%= reservation.start_date%></li>
-      <li>End Date: $<%= reservation.end_date%></li>
-      <li>Total Cost: $<%= reservation.total_cost%></li><br>
+
+      <li><h4>Check in:</h4> <%= reservation.start_date.strftime('%A, %B  %dth, %Y')%></li>
+      <li><h4>Check out:</h4> $<%= reservation.end_date.strftime('%A, %B  %dth, %Y')%></li>
+      <li><h4>Total Cost:</h4> $<%= reservation.total_cost%></li><br>
       <%= link_to '<button type="button">Edit Reservation</button>'.html_safe, edit_reservation_path(reservation)%>
-      <%= link_to '<button type="button">Delete Reservation</button>'.html_safe, reservation, :method => :delete%>
+      <%= link_to '<button type="button">Cancel Reservation</button>'.html_safe, reservation, :method => :delete%>
     </ul>
     </li>
       </ul>
@@ -26,9 +27,9 @@
     <h4><li><%= link_to reservation.item.name, reservation_path(reservation) %></li></h4>
     <%= (link_to "Leave a Review!", review_new_path(reservation)) if !reservation.reviewed %>
     <ul>
-      <li>Start Date: <%= reservation.start_date%></li>
-      <li>End Date: $<%= reservation.end_date%></li>
-      <li>Total Cost: $<%= reservation.total_cost%></li>
+      <li><h4>Check out:</h4> <%= reservation.start_date.strftime('%A, %B  %dth, %Y')%></li>
+      <li><h4>Check in:</h4> <%= reservation.end_date.strftime('%A, %B  %dth, %Y')%></li>
+      <li><h4>Total Cost:</h4> $<%= reservation.total_cost%></li>
     </ul>
   <% end %>
   </li>

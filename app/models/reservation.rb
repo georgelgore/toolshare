@@ -8,6 +8,7 @@ class Reservation < ApplicationRecord
   validates :start_date, presence: true
   validates :end_date, presence: true
   validate :valid_date_range_required
+  validate :is_a_free_date?
   validates :total_cost, presence: true
 
 

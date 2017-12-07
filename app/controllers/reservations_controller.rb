@@ -28,7 +28,7 @@ class ReservationsController < ApplicationController
     # item_daily_cost = Item.find(params[:reservation][:item_id]).cost_daily
     params[:reservation][:total_cost] = calc_total_cost(params)
     @reservation = Reservation.new(reservation_params)
-    if @reservation.valid? && @reservation.is_a_free_date?
+    if @reservation.valid?
       @reservation.item.change_availability
       # currently, we have no switch to make reservation item status return to true.
       @reservation.save
@@ -45,7 +45,7 @@ class ReservationsController < ApplicationController
   def update
     @reservation = Reservation.find(params[:id])
     @reservation.update(reservation_params)
-    if @reservation.valid? && @reservation.is_a_free_date?
+    if @reservation.valid?
       redirect_to reservation_path(@reservation)
     else
       render :edit
