@@ -15,7 +15,7 @@
           <div class="card-img-top"/> <%= link_to image_tag("maps/#{location.name.downcase}.png", :size=> '300x200'), location_path(location) %> </div>
           <div class="card-block">
             <h4 class="card-title"><%= link_to location.name, location_path(location) %></h4>
-            <p class="card-text"><%= location.address %> <br> <%= location.name %>, NY 10004</p>
+            <p class="card-text"><%= location.address %> <br> <%= location.name %>, NY</p>
           </div>
         </div>
       </div>
