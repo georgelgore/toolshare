@@ -43,6 +43,7 @@ a {
   padding: 20px;
   background-color: rgba(245,245,245,0.7);
   min-width: 500px;
+  max-width: 80%
 }
 
 .clearnav {
