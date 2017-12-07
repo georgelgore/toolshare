@@ -1,9 +1,9 @@
 class ReservationsController < ApplicationController
   before_action :authorized
 
-  # def index
-  #   @reservations = Reservation.all
-  # end
+  def index
+    @reservations = Reservation.all
+  end
 
   def show
     if current_user.id == Reservation.find(params[:id]).user_id
@@ -29,7 +29,9 @@ class ReservationsController < ApplicationController
     params[:reservation][:total_cost] = calc_total_cost(params)
     @reservation = Reservation.new(reservation_params)
     if @reservation.valid?
-      @reservation.item.available = false
+      byebug
+
+      @reservation.item.change_availability
       # currently, we have no switch to make reservation item status return to true.
       @reservation.save
       redirect_to reservation_path(@reservation)

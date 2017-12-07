@@ -59,4 +59,8 @@ class Item < ApplicationRecord
       return "Not Available"
     end
   end
+
+  def change_availability
+    self.available = !self.available
+  end
 end
