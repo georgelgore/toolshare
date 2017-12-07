@@ -43,6 +43,7 @@ a {
   padding: 20px;
   background-color: rgba(245,245,245,0.7);
   min-width: 500px;
+  max-width: 80%
 }
 
 .clearnav {
@@ -63,4 +64,19 @@ a {
 
 .btn-primary {
   background: rgb(98,151,176)
+}
+
+.btn-default {
+  color: rgb(98,151,176);
+  border-color: rgb(98,151,176);
+  text-decoration: none
+}
+
+.teal {
+  color: rgb(98,151,176);
+}
+
+.teal:hover {
+  color: white;
+  background-color: rgb(98,151,176);
 }

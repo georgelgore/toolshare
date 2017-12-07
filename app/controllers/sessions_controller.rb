@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
       # you are who you say you are
 
       session[:email] = user.id
-      flash[:message] = "Welcome #{user.name}"
+      flash[:message] = "Welcome, #{user.name}!"
       redirect_to user
     else
 

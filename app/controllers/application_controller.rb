@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   helper_method :logged_in?
-
+  helper_method :current_user
   # who is my current user
   # am i logged in or not
   def current_user
