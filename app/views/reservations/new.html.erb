@@ -1,4 +1,8 @@
-<h1>New Reservation</h1>
+<div class="clearnav navbar navbar-default">
+  <ul class="nav navbar-nav">
+    <h1>New Reservation</h1>
+  </ul>
+</div>
 
 <%= form_for @reservation do |f| %>
   <%=f.hidden_field :user_id, value: @current_user.id %><br><br>
