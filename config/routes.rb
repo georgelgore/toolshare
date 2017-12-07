@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :show]
   resources :reservations, only: [:index, :show, :new, :create, :edit, :update]
   resources :reviews, only: [:index, :show, :create]
-  resources :users, only: [:index, :show, :new, :create, :edit, :update]
+  resources :users, only: [:show, :new, :create, :edit, :update]
 
   resources :tool_types, :path => "tool-types", only: [:index, :show]
 
