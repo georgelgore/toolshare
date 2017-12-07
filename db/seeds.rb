@@ -12,11 +12,11 @@ Item.destroy_all
 User.destroy_all
 Location.destroy_all
 
-manhattan = Location.create(name: "Manhattan")
-brooklyn = Location.create(name: "Brooklyn")
-queens = Location.create(name: "Queens")
-bronx = Location.create(name: "Bronx")
-staten_island = Location.create(name: "Staten Island")
+manhattan = Location.create(name: "Manhattan", address: "11 Broadway")
+brooklyn = Location.create(name: "Brooklyn", address: "36 Meserole St.")
+queens = Location.create(name: "Queens", address: "25 Jackson Ave.")
+bronx = Location.create(name: "Bronx", address: "2300 Southern Blvd.")
+staten_island = Location.create(name: "Staten Island", address: "629 Forest Ave.")
 
 boroughs = [manhattan, brooklyn, queens, bronx, staten_island]
 
