@@ -8,6 +8,7 @@ class Reservation < ApplicationRecord
   validates :start_date, presence: true
   validates :end_date, presence: true
   validate :valid_date_range_required
+  validate :is_a_free_date?
   validates :total_cost, presence: true
 
 
@@ -22,7 +23,6 @@ class Reservation < ApplicationRecord
   end
 
 
-
     def is_available_at_this_date
       Reservation.where(item_id: item.id).where.not(id: id).each do |r|
         booked_dates = r.start_date.to_date..r.end_date.to_date
@@ -32,11 +32,16 @@ class Reservation < ApplicationRecord
         end
       end
     end
-    #
-    # def check_out_after_check_in
-    #   if check_out && check_in && check_out <= check_in
-    #     errors.add(:guest_id, "Your check-out date needs to be after your check-in.")
-    #   end
-    # end
+
+    def check_out_after_check_in
+      if start_date && end_date && end_date.to_date <= start_date.to_date
+        errors.add(:user_id, "Your check-out date needs to be after your check-in.")
+        return false
+      end
+    end
+
+    def is_a_free_date?
+      self.is_available_at_this_date && self.check_out_after_check_in
+    end
 
 end

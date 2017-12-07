@@ -1,8 +1,7 @@
 <h1>Reservations</h1>
   <div style="border: 1px solid lightgray; padding: 20px; width: 300px">
-    Customer: <%= @reservation.user.name %><br><br>
-    Item: <%= @reservation.item.name %><br><br>
-    Start Date: <%= @reservation.start_date %><br><br>
-    End Date: <%= @reservation.end_date %><br><br>
+    Customer: <%= link_to @reservation.user.name, user_path(@reservation.user) %><br><br>
+    Item: <%= link_to @reservation.item.name, item_path(@reservation.item) %><br><br>
+    <h4>Reservation Dates:</h4> <%= @reservation.start_date.strftime('%A, %B  %dth, %Y')%>  -  <%= @reservation.end_date.strftime('%A, %B  %dth, %Y')%><br><br>
     Total Cost: $<%= @reservation.total_cost %><br><br>
   </div>

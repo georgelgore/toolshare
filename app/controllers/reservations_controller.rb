@@ -28,7 +28,7 @@ class ReservationsController < ApplicationController
     # item_daily_cost = Item.find(params[:reservation][:item_id]).cost_daily
     params[:reservation][:total_cost] = calc_total_cost(params)
     @reservation = Reservation.new(reservation_params)
-    if @reservation.valid? && @reservation.is_available_at_this_date
+    if @reservation.valid?
       @reservation.item.change_availability
       # currently, we have no switch to make reservation item status return to true.
       @reservation.save
@@ -43,7 +43,20 @@ class ReservationsController < ApplicationController
   end
 
   def update
-      # what method goes here?
+    @reservation = Reservation.find(params[:id])
+    @reservation.update(reservation_params)
+    if @reservation.valid?
+      redirect_to reservation_path(@reservation)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @reservation = Reservation.find(params[:id])
+    @user = @reservation.user
+    @reservation.destroy
+    redirect_to @user
   end
 
 
