@@ -24,10 +24,10 @@
         <a class="navbar-brand" href="../" style="font-size: 20px; font-family: bungee; color: rgb(98,151,176)">ToolShare</a>
       </div>
       <ul class="nav navbar-nav">
-        <li><a href="../">Welcome</a></li>
-        <li><a href="../tools">Tools</a></li>
-        <li><a href="../locations">Locations</a></li>
-        <li><a href="../reservations/new">Make a Reservation</a></li>
+        <li><%= link_to "Welcome", root_path %></li>
+        <li><%= link_to "Tools", items_path %></li>
+        <li><%= link_to "Locations", locations_path %></li>
+        <li><%= link_to "Make a Reservation", new_reservation_path %></li>
       </ul>
 
       <div class="nav nav-pills pull-right">

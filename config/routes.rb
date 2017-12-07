@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :tool_types, :path => "tool-types", only: [:index, :show]
 
-  get "/", to: "root#welcome"
+  get "/", to: "root#welcome", as: "root"
   get "signup", to: "users#new", as: "signup"
   get "/signin", to: "sessions#new", as: "signin"
   post "/sessions", to: "sessions#create", as: "sessions"
