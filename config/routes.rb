@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :locations, only: [:index, :show]
   resources :items, only: [:index, :show]
   resources :reservations, only: [:index, :show, :new, :create, :edit, :update]
-  resources :reviews, only: [:index, :show]
+  resources :reviews, only: [:index, :show, :create]
   resources :users, only: [:index, :show, :new, :create, :edit, :update]
 
   resources :tool_types, :path => "tool-types", only: [:index, :show]
@@ -15,7 +15,6 @@ Rails.application.routes.draw do
   delete "/sessions", to: "sessions#destroy", as: "signout"
 
   get '/reservations/:id/review/new', to: 'reviews#new', as: 'review_new'
-  post '/reservations/:id/review/new', to: 'reviews#create'
 
 
 end
