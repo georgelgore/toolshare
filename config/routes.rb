@@ -15,6 +15,10 @@ Rails.application.routes.draw do
   delete "/sessions", to: "sessions#destroy", as: "signout"
 
   get '/reservations/:id/review/new', to: 'reviews#new', as: 'review_new'
-
+  get '/items/:id/reservations/new', to: 'reservations#new', as: 'reservation_new'
 
 end
+
+
+#make new reservation; reservation belongs_to items
+# route: /item/:id/reservations/new
