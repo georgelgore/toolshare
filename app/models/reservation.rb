@@ -39,7 +39,7 @@ class Reservation < ApplicationRecord
       end
     end
 
-    def check_date
+    def is_a_free_date?
       self.is_available_at_this_date && self.check_out_after_check_in
     end
 
