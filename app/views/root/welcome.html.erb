@@ -2,6 +2,7 @@
 <h2>Need a tool?</h2>
 <h2>We've got you covered.</h2><br><br><br><br>
 <%=form_tag(tool_type_path(:tool_type), method: :get, class:"form-inline") do%>
+  <p style="margin-left: 5px; color: gray">  Find the tool you need...right now!</p>
   <input class="form-control" style="width: 80%" list="tool" name="tool_type">
   <datalist id="tool">
     <% ToolType.all.each do |tool_type| %>
