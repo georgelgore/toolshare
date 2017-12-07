@@ -21,7 +21,7 @@
   <body>
     <div class="navbar navbar-default navbar-fixed-top" style="border-bottom: 2px solid rgb(98,151,176)">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#" style="font-size: 20px; font-family: bungee; color: rgb(98,151,176)">ToolShare</a>
+        <a class="navbar-brand" href="../" style="font-size: 20px; font-family: bungee; color: rgb(98,151,176)">ToolShare</a>
       </div>
       <ul class="nav navbar-nav">
         <li><a href="../">Welcome</a></li>
@@ -32,7 +32,7 @@
           <% if logged_in? %>
             <%= link_to "Sign Out", signout_path, method: :delete %>
             <% else %>
-              <%= link_to "Sign in", signin_path %>
+              <%= link_to "Sign In/ Sign Up", signin_path %>
             <% end %>
 
 
