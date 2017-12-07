@@ -16,5 +16,9 @@ class Reservation < ApplicationRecord
       errors.add(:valid_until, "must be later than start date")
     end
   end
-  
+
+  def change_reviewed
+    self.reviewed = !self.reviewed
+  end
+
 end

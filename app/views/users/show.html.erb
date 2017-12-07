@@ -19,10 +19,10 @@
   <% end %>
   </li>
   </ul>
-  <li><h3> Completed Reservations: </h3><%@user.reservations.where(completed?: true).each do |reservation| %>
+  <li><h3> Completed Reservations: </h3><%@user.reservations.where(completed: true).each do |reservation| %>
   <ul>
     <h4><li><%= link_to reservation.item.name, reservation_path(reservation) %></li></h4>
-    <%= (link_to "Leave a Review!", review_new_path(reservation)) if !reservation.reviewed? %>
+    <%= (link_to "Leave a Review!", review_new_path(reservation)) if !reservation.reviewed %>
     <ul>
       <li>Start Date: <%= reservation.start_date%></li>
       <li>End Date: $<%= reservation.end_date%></li>

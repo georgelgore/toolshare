@@ -53,6 +53,6 @@ nailgun2 = Item.create(name: 'P320 Airstrike 18 Volt One+ Lithium Ion Cordless B
 res1 = Reservation.create(user: george, item: hammer1, start_date: 'Mon, 04 Dec 2017 00:00:00 -0500', end_date:'Tues, 05 Dec 2017 00:00:00 -0500', total_cost: 5.0)
 res2 = Reservation.create(user: dan, item: hammer2, start_date: 'Sun, 03 Dec 2017 00:00:00 -0500', end_date:'Wed, 06 Dec 2017 00:00:00 -0500', total_cost: 5.0)
 res3 = Reservation.create(user: paul, item: drill1, start_date: 'Mon, 11 Dec 2017 00:00:00 -0500', end_date:'Wed, 13 Dec 2017 00:00:00 -0500', total_cost: 5.0)
-res4 = Reservation.create(user: george, item: drill2, start_date: 'Thu, 21 Dec 2017 00:00:00 -0500', end_date:'Sun, 24 Dec 2017 00:00:00 -0500', total_cost: 5.0, completed?: true)
+res4 = Reservation.create(user: george, item: drill2, start_date: 'Thu, 21 Dec 2017 00:00:00 -0500', end_date:'Sun, 24 Dec 2017 00:00:00 -0500', total_cost: 5.0, completed: true)
 
 rev1 = Review.create(reservation: res1, content: "It worked!", rating: 7)
