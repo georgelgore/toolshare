@@ -29,8 +29,6 @@ class ReservationsController < ApplicationController
     params[:reservation][:total_cost] = calc_total_cost(params)
     @reservation = Reservation.new(reservation_params)
     if @reservation.valid?
-      byebug
-
       @reservation.item.change_availability
       # currently, we have no switch to make reservation item status return to true.
       @reservation.save
