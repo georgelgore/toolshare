@@ -14,7 +14,9 @@
     <ul>
       <li>Start Date: <%= reservation.start_date%></li>
       <li>End Date: $<%= reservation.end_date%></li>
-      <li>Total Cost: $<%= reservation.total_cost%></li>
+      <li>Total Cost: $<%= reservation.total_cost%></li><br>
+      <%= link_to '<button type="button">Edit Reservation</button>'.html_safe, edit_reservation_path(reservation)%>
+      <%= link_to '<button type="button">Delete Reservation</button>'.html_safe, reservation, :method => :delete%>
     </ul>
     </li>
       </ul>

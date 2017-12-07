@@ -45,11 +45,18 @@ class ReservationsController < ApplicationController
   def update
     @reservation = Reservation.find(params[:id])
     @reservation.update(reservation_params)
-    if @reservation.valid? && reservation.is_a_free_date?
+    if @reservation.valid? && @reservation.is_a_free_date?
       redirect_to reservation_path(@reservation)
     else
       render :edit
     end
+  end
+
+  def destroy
+    @reservation = Reservation.find(params[:id])
+    @user = @reservation.user
+    @reservation.destroy
+    redirect_to @user
   end
 
 
