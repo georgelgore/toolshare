@@ -28,7 +28,7 @@ class ReservationsController < ApplicationController
     # item_daily_cost = Item.find(params[:reservation][:item_id]).cost_daily
     params[:reservation][:total_cost] = calc_total_cost(params)
     @reservation = Reservation.new(reservation_params)
-    if @reservation.valid?
+    if @reservation.valid? && @reservation.is_available_at_this_date
       @reservation.item.change_availability
       # currently, we have no switch to make reservation item status return to true.
       @reservation.save
@@ -65,11 +65,13 @@ class ReservationsController < ApplicationController
   end
 
   def authorized
-  if logged_in?
-  else
-    redirect_to signin_path
+    if logged_in?
+    else
+      redirect_to signin_path
+    end
   end
-end
+
+
 
 
 end
