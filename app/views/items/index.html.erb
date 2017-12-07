@@ -19,7 +19,7 @@
 
 <% @items.each do |item| %>
 
-<div class="col-sm-3">
+<div class= "<%= @items.count < 4 ? "col-md-4" : "col-md-3"  %>" >
   <div class="card" style="width: 20rem; margin: 40px 20px">
     <div class="card-block">
       <div class="card-img-top img-responsive"/> <%= image_tag("#{item.image_url}", :size=> '200x150') %> </div>

@@ -80,3 +80,7 @@ a {
   color: white;
   background-color: rgb(98,151,176);
 }
+
+.wide {
+  width: 800px
+}
