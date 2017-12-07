@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     if @review.valid?
       @review.reservation.change_reviewed
-      # change reservation status to reviewed? = true... but won't allow to do here. maybe before save?
+      # change reservation status to reviewed = true... but won't allow to do here. maybe before save?
       @review.save
       redirect_to review_path(@review)
     else
