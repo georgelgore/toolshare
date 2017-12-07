@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :locations, only: [:index, :show]
   resources :items, only: [:index, :show]
+
+  get "/tools", to: "items#index"
   resources :reservations
   resources :reviews, only: [:index, :show, :create]
   resources :users, only: [:show, :new, :create, :edit, :update]
@@ -15,7 +17,7 @@ Rails.application.routes.draw do
   delete "/sessions", to: "sessions#destroy", as: "signout"
 
   get '/reservations/:id/review/new', to: 'reviews#new', as: 'review_new'
-  get '/items/:id/reservations/new', to: 'reservations#new', as: 'reservation_new'
+  get '/tools/:id/reservations/new', to: 'reservations#new', as: 'reservation_new'
 
 end
 

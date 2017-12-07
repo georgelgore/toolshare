@@ -6,7 +6,7 @@
 
 <%= form_for @reservation do |f| %>
   <%=f.hidden_field :user_id, value: @current_user.id %>
-  
+
   <%=f.label :item_name %><br>
   <%=f.collection_select :item_id, Item.all, :id, :name_with_price %><br><br>
 
