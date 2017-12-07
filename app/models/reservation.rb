@@ -21,4 +21,15 @@ class Reservation < ApplicationRecord
     self.reviewed = !self.reviewed
   end
 
+
+
+    def is_available_at_this_date
+      Reservation.where(item_id: item.id).where.not(id: id).each do |r|
+        booked_dates = r.start_date.to_date..r.end_date.to_date
+        if booked_dates === self.start_date.to_date || booked_dates === self.end_date.to_date
+          return false
+        end
+      end
+    end
+
 end
