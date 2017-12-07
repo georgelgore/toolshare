@@ -1,11 +1,11 @@
-<h1>Welcome to ToolShare NYC.</h1>
-<h2>When you need a big tool but have little space...</h2>
-<%=form_tag(tool_type_path(:tool_type), method: :get) do%>
-  <input list="tool" name="tool_type">
+<h1 class="teal" style = "font-family: bungee; font-size: 60px">ToolShare NYC</h1><br>
+<h2>When you need a big tool but have little space...</h2><br><br>
+<%=form_tag(tool_type_path(:tool_type), method: :get, class:"form-inline") do%>
+  <input class="form-control" style="width: 80%" list="tool" name="tool_type">
   <datalist id="tool">
     <% ToolType.all.each do |tool_type| %>
       <option value="<%= tool_type.name %>">
     <% end %>
   </datalist>
-  <%=submit_tag("Search")%>
+  <%=submit_tag "Search", class: "btn btn-primary btn-sm"%>
 <% end %>
