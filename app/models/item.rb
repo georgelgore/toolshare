@@ -52,4 +52,11 @@ class Item < ApplicationRecord
     Item.all.select{|item| item.cost_daily > max_cost}
   end
 
+  def available?
+    if self.available
+      return "Available"
+    else
+      return "Not Available"
+    end
+  end
 end

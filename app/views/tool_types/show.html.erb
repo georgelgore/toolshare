@@ -1,12 +1,12 @@
 <div class="clearnav navbar navbar-default">
   <ul class="nav navbar-nav">
     <li><%=link_to "Locations", locations_path%></li>
-    <li><%=link_to "Tool Types", tool_types_path%></li>
+    <li><%=link_to "Tools", tool_types_path%></li>
     <li><%=link_to "Book New Reservation", new_reservation_path%></li>
   </ul>
 </div>
 
-<h1><%= @tool_type.name %></h1>
+<h1><%= @tool_type.name.pluralize %></h1>
 <ul>
   <% @tool_type.items.each do |item| %>
   <li> <%=link_to item.name, item_path(item)%> </li>

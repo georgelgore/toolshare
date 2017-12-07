@@ -6,14 +6,28 @@
 
 <h1><%= @user.name %></h1>
 <ul>
-  <h3> Email Address: <%= @user.email %></h3>
-  <h3> User Location: <%= link_to @user.location.name, location_path(@user.location) %></h3>
-  <h3> User Items: </h3><%@user.items.each do |item| %>
+  <li><h3> Email Address: <%= @user.email %></h3></li>
+  <li><h3> User Location: <%= link_to @user.location.name, location_path(@user.location) %></h3></li>
+  <li><h3> Active Reservations: </h3><%@user.reservations.where(completed?: false).each do |reservation| %>
   <ul>
-    <h3><li><%= link_to item.name, item_path(item) %></li></h3>
+    <h4><li><%= link_to reservation.item.name, reservation_path(reservation) %></li></h4>
     <ul>
-      <h4><li>Please Return By: <%= item.reservations.first.end_date %></li></h4>
+      <li>Start Date: <%= reservation.start_date%></li>
+      <li>End Date: $<%= reservation.end_date%></li>
+      <li>Total Cost: $<%= reservation.total_cost%></li>
     </ul>
-  </ul>
   <% end %>
+  </li>
+  </ul>
+  <li><h3> Completed Reservations: </h3><%@user.reservations.where(completed?: true).each do |reservation| %>
+  <ul>
+    <h4><li><%= link_to reservation.item.name, reservation_path(reservation) %></li></h4>
+    <%= (link_to "Leave a Review!", review_new_path(reservation)) if !reservation.reviewed? %>
+    <ul>
+      <li>Start Date: <%= reservation.start_date%></li>
+      <li>End Date: $<%= reservation.end_date%></li>
+      <li>Total Cost: $<%= reservation.total_cost%></li>
+    </ul>
+  <% end %>
+  </li>
 </ul>

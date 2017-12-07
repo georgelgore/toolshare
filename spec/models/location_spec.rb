@@ -1,5 +1,9 @@
 require 'rails_helper'
 
-# RSpec.describe Location, type: :model do
-#   pending "add some examples to (or delete) #{__FILE__}"
-# end
+RSpec.describe Location, type: :model do
+  let(:jersey_city) { Location.create(name: 'Jersey City') }
+
+    it 'City has a name' do
+      expect(jersey_city.name).to eq('Jersey City')
+    end
+end

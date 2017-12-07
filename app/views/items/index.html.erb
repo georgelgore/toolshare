@@ -34,7 +34,7 @@
           <p class="card-text">Tool Type:  <%=link_to item.tool_type.name, tool_type_path(item.tool_type)%></p>
           <p class="card-text">Daily Cost: $<%=item.cost_daily%></p>
           <p class="card-text">Hourly Cost: $<%=item.cost_hourly%></p>
-          <p class="card-text">Available: <%=item.available%></p>
+          <p class="card-text"><%=item.available?%></p>
           <p class="card-text">Location: <%=link_to item.location.name, location_path(item.location)%></p>
 
 
