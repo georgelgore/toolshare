@@ -6,6 +6,9 @@ class ReviewsController < ApplicationController
 
   def new
     @review = Review.new(reservation: Reservation.find(params[:id]))
+    if current_user.id != @review.reservation.user.id
+      redirect_to user_path(current_user.id)
+    end
   end
 
   def create
