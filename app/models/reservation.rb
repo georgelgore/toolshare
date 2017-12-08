@@ -55,4 +55,9 @@ class Reservation < ApplicationRecord
       self.is_available_at_this_date &&  self.not_in_past?
     end
 
+    def self.filter_by_user(user_input)
+      return Reservation.all if user_input[:name].nil?
+      Reservation.all.select{|res| res.user_id == user_input[:name].to_i}
+    end
+
 end

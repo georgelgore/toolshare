@@ -1,4 +1,9 @@
-<h1>Reservations</h1> <br />
+<h1>Reservations</h1>
+
+<%= form_tag(reservations_path, method: "get", class: "form-inline") do %>
+  <%= select_tag "name", options_from_collection_for_select(User.all, "id", "name"), prompt: "Select User", class: "form-control" %>
+  <%= submit_tag "Filter", class: "btn btn-primary btn-sm" %>
+<% end %><br>
 
 <h2>Active Reservations</h2>
 <% @reservations.select{|x|x.completed == false}.each do |res| %>

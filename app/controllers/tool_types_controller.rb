@@ -5,10 +5,11 @@ class ToolTypesController < ApplicationController
   end
 
   def show
-    if params[:tool_type]
-      @tool_type = ToolType.find_by(name: params[:tool_type])
+    if ToolType.is_a_tool_type?(params[:tool_type])
+      @tool_type = ToolType.find_by(name: params[:tool_type].capitalize)
     else
-      @tool_type = ToolType.find(params[:id])
+      flash[:error] = "We do not carry this type of tool. Please select from the existing options."
+      redirect_to root_path
     end
   end
 

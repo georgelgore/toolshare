@@ -4,6 +4,10 @@
   </ul>
 </div>
 
+<div>
+  <%= image_tag @user.image_url, size: "150x150", class: "pull-right"%>
+
+</div>
 <ul>
   <li><h3> Email Address: <%= @user.email %></h3></li>
   <li><h3> User Location: <%= link_to @user.location.name, location_path(@user.location) %></h3></li>
