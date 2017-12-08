@@ -14,7 +14,7 @@ class Reservation < ApplicationRecord
 
   def valid_date_range_required
     if (start_date && end_date) && (end_date < start_date)
-      errors.add(:valid_until, "Your check-out date needs to be after your check-in date! Ya goof.")
+      errors.add(:Your, "check-out date needs to be after your check-in date! Ya goof.")
     end
   end
 
@@ -27,7 +27,7 @@ class Reservation < ApplicationRecord
       Reservation.where(item_id: item.id).where.not(id: id).each do |r|
         booked_dates = r.start_date.to_date..r.end_date.to_date
         if booked_dates === self.start_date.to_date || booked_dates === self.end_date.to_date
-          errors.add(:user_id, "This tool isn't available at this date.")
+          errors.add(:This, "tool isn't available at this date.")
           return false
         else
           return true
@@ -46,7 +46,7 @@ class Reservation < ApplicationRecord
 
     def not_in_past?
       if start_date < DateTime.now || end_date < DateTime.now
-        errors.add(:user_id, "You can't book things in the past, ya goof!")
+        errors.add(:You, "can't book things in the past, ya goof!")
         return false
       end
     end
