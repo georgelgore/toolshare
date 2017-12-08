@@ -16,13 +16,17 @@ class Item < ApplicationRecord
   validates :location_id, presence: true
 
 
-  def name_with_price
-    "#{self.name} - $#{self.cost_daily} "
+  def name_with_price_location
+    "#{self.name} - $#{self.cost_daily} - #{self.location.name} "
   end
 
   def average_rating
     ratings = self.reviews.collect{|review|review.rating}
-    ratings.inject{ |sum, el| sum + el }.to_f / ratings.size
+    if ratings.empty?
+      "Item not reviewed yet."
+    else
+    average = ratings.inject{ |sum, el| sum + el }.to_f / ratings.size
+    end
   end
 
   def get_reviews
