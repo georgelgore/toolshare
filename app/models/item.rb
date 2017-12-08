@@ -16,8 +16,8 @@ class Item < ApplicationRecord
   validates :location_id, presence: true
 
 
-  def name_with_price
-    "#{self.name} - $#{self.cost_daily} "
+  def name_with_price_location
+    "#{self.name} - $#{self.cost_daily} - #{self.location.name} "
   end
 
   def average_rating
