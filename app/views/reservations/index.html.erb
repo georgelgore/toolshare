@@ -1,4 +1,10 @@
 <h1>Reservations</h1>
+
+<%= form_tag(reservations_path, method: "get", class: "form-inline") do %>
+  <%= select_tag "name", options_from_collection_for_select(User.all, "id", "name"), prompt: "Select User", class: "form-control" %>
+  <%= submit_tag "Filter", class: "btn btn-primary btn-sm" %>
+<% end %><br>
+
 <% @reservations.each do |res| %>
   <div style="border: 1px solid lightgray; padding: 20px; width: 300px">
     Customer: <%= res.user.name %><br>
