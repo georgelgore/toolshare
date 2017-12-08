@@ -54,7 +54,7 @@
 
         <!-- error -->
         <% flash.each do |name, msg| %>
-          <div class= "alert alert-danger">
+          <div class= "alert <%= msg.include?("Welcome") ? "alert-info" : "alert-danger"%>">
             <%= content_tag :div, msg %>
           </div>
         <% end %>
