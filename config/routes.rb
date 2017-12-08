@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   post "/sessions", to: "sessions#create", as: "sessions"
   delete "/sessions", to: "sessions#destroy", as: "signout"
 
+  get "/users/:id/admin", to: "users#admin"
   get '/reservations/:id/review/new', to: 'reviews#new', as: 'review_new'
   get '/tools/:id/reservations/new', to: 'reservations#new', as: 'reservation_new'
 

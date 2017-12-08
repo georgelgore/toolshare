@@ -42,6 +42,28 @@ class UsersController < ApplicationController
     redirect_to user_path(@user)
   end
 
+  def admin
+    @reservations = Reservation.all
+    @completedrescount = Reservation.all.select{|res|res.completed}
+    @currentrescount = Reservation.all.select{|res|res.completed == false}
+
+    @users = User.all
+    @items = Item.all
+    @rescount = Reservation.all.count
+    @currentrescount = Reservation.all.count{|res|res.completed == false}
+    @completedrescount = Reservation.all.count{|res|res.completed}
+    @mostcheckedout = Item.all.max_by{|x|x.reservations.count}
+    @mostexpensiveitem = Item.all.max_by{|x|x.cost_daily}
+
+    # how many total reservations ( breakout current and complete)
+    # - list current +
+    # - completed reservations
+    # biggest spender users
+    # most checked out tools
+    # total tools, total tools checked out / not
+    # location with most reservations
+  end
+
   private
 
   def user_params
