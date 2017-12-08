@@ -8,6 +8,7 @@
     <% ToolType.all.each do |tool_type| %>
       <option value="<%= tool_type.name %>">
     <% end %>
+
   </datalist>
   <%=submit_tag "Search", class: "btn btn-primary btn-sm"%>
 <% end %>
