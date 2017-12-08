@@ -2,6 +2,10 @@ class ReservationsController < ApplicationController
   before_action :authorized
 
   def index
+    if !current_user || current_user.name != "admin"
+      redirect_to root_path
+    end
+
     @reservations = Reservation.all
   end
 
@@ -58,6 +62,13 @@ class ReservationsController < ApplicationController
     redirect_to @user
   end
 
+  def finish
+    @reservation = Reservation.find(params[:id])
+    @reservation.completed = true
+    @reservation.save
+    redirect_to reservations_path
+  end
+
 
   private
 
@@ -82,8 +93,6 @@ class ReservationsController < ApplicationController
       redirect_to signin_path
     end
   end
-
-
 
 
 end

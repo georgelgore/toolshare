@@ -1,11 +1,27 @@
-<h1>Reservations</h1>
-<% @reservations.each do |res| %>
+<h1>Reservations</h1> <br />
+
+<h2>Active Reservations</h2>
+<% @reservations.select{|x|x.completed == false}.each do |res| %>
   <div style="border: 1px solid lightgray; padding: 20px; width: 300px">
     Customer: <%= res.user.name %><br>
     Item: <%= res.item.name %><br>
-    Start Date: <%= res.start_date %><br>
-    End Date: <%= res.end_date %><br>
-    Total Cost: <%= res.total_cost %><br>
+    Start Date: <%= res.start_date.strftime('%A, %B  %dth, %Y') %><br>
+    End Date: <%= res.end_date.strftime('%A, %B  %dth, %Y') %><br>
+    Total Cost: $<%= '%.2f' % res.total_cost %><br>
+    <%= link_to '<button type="button">Edit Reservation</button>'.html_safe, edit_reservation_path(res)%>
+    <%= link_to '<button type="button">Cancel Reservation</button>'.html_safe, res, :method => :delete%>
+    <%= link_to '<button type="button">Finish Reservation</button>'.html_safe, res, method: :post, action: :finish%>
   </div>
+<% end %>
+<br>
 
+<h2>Completed Reservations</h2>
+<% @reservations.select{|x|x.completed == true}.each do |res| %>
+  <div style="border: 1px solid lightgray; padding: 20px; width: 300px">
+    Customer: <%= res.user.name %><br>
+    Item: <%= res.item.name %><br>
+    Start Date: <%= res.start_date.strftime('%A, %B  %dth, %Y') %><br>
+    End Date: <%= res.end_date.strftime('%A, %B  %dth, %Y') %><br>
+    Total Cost: $<%= '%.2f' % res.total_cost %><br>
+  </div>
 <% end %>

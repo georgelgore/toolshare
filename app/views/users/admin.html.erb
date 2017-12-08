@@ -1,1 +1,35 @@
 <h1> Admin Stats</h1>
+
+<ul>
+  <li>
+    Reservations
+    <ul>
+      <li>Total Reservations: <%=@rescount%></li>
+      <li>Current Reservations: <%=@currentrescount%></li>
+      <li>Completed Reservations: <%=@completedrescount%></li>
+        <ul>
+          <li>Total Reservations: <%=@completedrescount%></li>
+          <% ToolType.all.each do |type| %>
+            <li><%= type.name %> Reservations: <%= @reservations.count{|x|x.item.tool_type.name == type.name}%></li>
+          <% end %>
+        </ul>
+
+    </ul>
+  </li>
+  <li>
+    Users
+    <ul>
+      <li>Total Users: <%=User.all.count%></li>
+      <li>Biggest Spender: <%=@biggestspender.name%></li>
+      <li>Most Reservations: <%=@mostreservations.name%></li>
+    </ul>
+  </li>
+  <li>
+    Tools
+    <ul>
+      <li>Total Tools: <%=@toolcount%></li>
+      <li>Most Used Item: <%=@mostcheckedout.name%></li>
+      <li>Most Expensive Item: <%=@mostexpensiveitem.name%></li>
+    </ul>
+  </li>
+</ul>

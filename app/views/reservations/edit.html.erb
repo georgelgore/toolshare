@@ -4,7 +4,7 @@
   <%=f.hidden_field :user_id, value: @current_user.id %><br><br>
 
   <%=f.label :item_name %><br>
-  <%=f.collection_select :item_id, Item.all, :id, :name_with_price %><br><br>
+  <%=f.collection_select :item_id, Item.all, :id, :name_with_price_location %><br><br>
 
   <%=f.label :start_date %><br>
   <%=f.date_field :start_date %><br><br>

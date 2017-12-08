@@ -43,18 +43,26 @@ class UsersController < ApplicationController
   end
 
   def admin
+    if !current_user || current_user.name != "admin"
+      redirect_to root_path
+    end
+
     @reservations = Reservation.all
     @completedrescount = Reservation.all.select{|res|res.completed}
     @currentrescount = Reservation.all.select{|res|res.completed == false}
 
     @users = User.all
+    @userscount = User.all.count
     @items = Item.all
     @rescount = Reservation.all.count
     @currentrescount = Reservation.all.count{|res|res.completed == false}
     @completedrescount = Reservation.all.count{|res|res.completed}
+    @toolcount = Item.all.count
     @mostcheckedout = Item.all.max_by{|x|x.reservations.count}
     @mostexpensiveitem = Item.all.max_by{|x|x.cost_daily}
-
+    @biggestspender = User.all.max_by{|x|x.reservations.collect{|res|res.total_cost}.sum}
+    @mostreservations = User.all.max_by{|x|x.reservations.count}
+    @popularlocation = Location.all.max_by{|x|x.reservations.count}
     # how many total reservations ( breakout current and complete)
     # - list current +
     # - completed reservations
