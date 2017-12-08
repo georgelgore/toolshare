@@ -8,7 +8,7 @@
   <%=f.hidden_field :user_id, value: @current_user.id %>
 
   <%=f.label :item_name %><br>
-  <%=f.collection_select :item_id, Item.all, :id, :name_with_price_location, class: "form-control" %><br><br>
+  <%=f.collection_select :item_id, Item.all, :id, :name_with_price_location, {:prompt=>true}, {:class=>'form-control'} %><br><br>
 
   <%=f.label :start_date %><br>
   <%=f.date_field :start_date, class: "form-control" %><br><br>
