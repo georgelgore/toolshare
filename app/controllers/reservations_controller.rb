@@ -2,7 +2,12 @@ class ReservationsController < ApplicationController
   before_action :authorized
 
   def index
-    @reservations = Reservation.all
+    if params[:commit] == "Filter"
+      @reservations =
+      Reservation.all & Reservation.filter_by_user(params)
+    else
+      @reservations = Reservation.all
+    end
   end
 
   def show
@@ -82,6 +87,8 @@ class ReservationsController < ApplicationController
       redirect_to signin_path
     end
   end
+
+
 
 
 
