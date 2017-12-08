@@ -32,6 +32,7 @@ class ReservationsController < ApplicationController
       @reservation.save
       redirect_to reservation_path(@reservation)
     else
+      flash[:error] = @reservation.errors.full_messages.to_sentence
       redirect_to new_reservation_path
     end
   end

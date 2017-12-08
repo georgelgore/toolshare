@@ -30,6 +30,8 @@
         <li><%= link_to "Make a Reservation", new_reservation_path %></li>
       </ul>
 
+
+
       <div class="nav nav-pills pull-right">
         <% if logged_in? %>
           <%= link_to "Sign Out", signout_path, method: :delete, class: "btn btn-default", style: "margin-top: 3px; margin-right: 5px"  %>
@@ -46,13 +48,18 @@
 
 
 
-
-
     <div class="container">
-      <% flash.each do |key, value| %>
-      <h3 style="margin-top: 75px; text-align: right; color: lightgray"><%= value %></h3>
-      <% end %>
+
       <div class="content">
+
+        <!-- error -->
+        <% flash.each do |name, msg| %>
+          <div class= "alert alert-danger">
+            <%= content_tag :div, msg %>
+          </div>
+        <% end %>
+
+
 
         <%= yield %>
 
