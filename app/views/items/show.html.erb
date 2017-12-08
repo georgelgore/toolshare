@@ -13,13 +13,17 @@
       <div class="col-md-4" style="margin-left: 40px">
         <h4 class="card-text">Brand: <%=@item.brand%></h4>
         <h4 class="card-text">Tool Type: <%=link_to @item.tool_type.name, tool_type_path(@item.tool_type)%></h4>
-        <h4 class="card-text">Daily Cost: $<%=@item.cost_daily%></h4>
-        <h4 class="card-text">Hourly Cost: $<%=@item.cost_hourly%></h4>
+        <h4 class="card-text">Rating: <%=@item.average_rating%></h4>
+        <h4 class="card-text">Hourly Cost: $<%=sprintf('%.2f', @item.cost_hourly)%></h4>
         <h4 class="card-text">Location: <%=link_to @item.location.name, location_path(@item.location)%></h4>
         <h4 class="card-text"> <%=@item.available?%></h4>
       </div>
 
   </div>
+
+  <br />
+  <button type="button"><%= link_to "Book It", reservation_new_path(params[:id]) %></button>
+
 
   <div class="row">
     <div class="col-md-6" style="margin-left: 40px">

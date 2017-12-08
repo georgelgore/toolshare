@@ -3,5 +3,5 @@
     Customer: <%= link_to @reservation.user.name, user_path(@reservation.user) %><br><br>
     Item: <%= link_to @reservation.item.name, item_path(@reservation.item) %><br><br>
     <h4>Reservation Dates:</h4> <%= @reservation.start_date.strftime('%A, %B  %dth, %Y')%>  -  <%= @reservation.end_date.strftime('%A, %B  %dth, %Y')%><br><br>
-    Total Cost: $<%= @reservation.total_cost %><br><br>
+    Total Cost: $<%= sprintf('%.2f', @reservation.total_cost) %><br><br>
   </div>

@@ -49,10 +49,11 @@ class UsersController < ApplicationController
   end
 
   def authorized
-  if logged_in?
-  else
-    redirect_to signin_path
+    if logged_in?
+    else
+      redirect_to signin_path
+    end
   end
-end
+
 
 end
