@@ -53,7 +53,7 @@ class Item < ApplicationRecord
 
   def self.filter_by_max_cost(max_cost)
     return Item.all if max_cost.zero?
-    Item.all.select{|item| item.cost_daily > max_cost}
+    Item.all.select{|item| item.cost_daily < max_cost}
   end
 
   def available?
