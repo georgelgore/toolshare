@@ -8,24 +8,23 @@
   <%= image_tag @user.image_url, size: "150x150", class: "pull-right"%>
 
 </div>
-<ul>
-  <li><h3> Email Address: <%= @user.email %></h3></li>
-  <li><h3> User Location: <%= link_to @user.location.name, location_path(@user.location) %></h3></li>
-  <li><h3> Active Reservations: </h3><%@user.reservations.where(completed: false).each do |reservation| %>
-  <ul>
-    <h4><li><%= link_to reservation.item.name, reservation_path(reservation) %></li></h4>
-    <ul>
 
+  <h3> Email Address: <%= @user.email %></h3>
+  <h3> User Location: <%= link_to @user.location.name, location_path(@user.location) %></h3>
+  <h3> Active Reservations: </h3>
+    <%@user.reservations.where(completed: false).each do |reservation| %>
+
+    <h4><%= link_to reservation.item.name, reservation_path(reservation) %></h4>
+    <ul>
       <li><h4>Reservation Dates:</h4> <%= reservation.start_date.strftime('%A, %B  %dth, %Y')%> - <%= reservation.end_date.strftime('%A, %B  %dth, %Y')%></li>
       <li><h4>Total Cost:</h4> $<%= '%.2f' % reservation.total_cost%></li><br>
       <%= link_to '<button type="button">Edit Reservation</button>'.html_safe, edit_reservation_path(reservation)%>
       <%= link_to '<button type="button">Cancel Reservation</button>'.html_safe, reservation, :method => :delete%>
     </ul>
-    </li>
-      </ul>
   <% end %>
-  <li><h3> Completed Reservations: </h3><%@user.reservations.where(completed: true).each do |reservation| %>
-  <ul>
+
+  <h3> Completed Reservations: </h3><%@user.reservations.where(completed: true).each do |reservation| %>
+
     <h4><li><%= link_to reservation.item.name, reservation_path(reservation) %></li></h4>
     <%= (link_to "Leave a Review!", review_new_path(reservation)) if !reservation.reviewed %>
     <ul>
@@ -35,7 +34,7 @@
   <% end %>
   </li>
 
-  <li>
+
     <h3> Completed Reviews: </h3>
     <ul>
     <% @user.reviews.each do |review| %>
@@ -48,5 +47,5 @@
     </li>
     <% end %>
     </ul>
-  </li>
+
 </ul>
