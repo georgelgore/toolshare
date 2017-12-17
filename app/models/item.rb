@@ -17,7 +17,7 @@ class Item < ApplicationRecord
 
 
   def name_with_price_location
-    "#{self.name} - $#{self.cost_daily} - #{self.location.name} "
+    "#{self.name} - $#{sprintf('%.2f', self.cost_daily)} - #{self.location.name} "
   end
 
   def average_rating

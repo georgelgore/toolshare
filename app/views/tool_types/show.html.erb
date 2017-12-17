@@ -6,7 +6,7 @@
 
 <ul>
   <% @tool_type.items.each do |item| %>
-  <li> <%=link_to item.name, item_path(item)%> </li>
+  <li> <%=link_to item.name_with_price_location, item_path(item)%> </li>
   <% end %>
 
 </ul>
