@@ -19,7 +19,7 @@ In order to run the application, fork the repo or clone using the following:
 
 ```git clone https://github.com/pawlkris/toolshare.git ```
 
-Then navigate to the directory you downloaded the files and run the following:
+Then navigate to the toolshare directory on your local drive and run the following:
 
 ``` bundle install ```
 
