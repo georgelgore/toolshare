@@ -22,6 +22,7 @@ In order to run the application, fork the repo or clone using the following:
 Then navigate to the directory you downloaded the files and run the following:
 
 ``` bundle install ```
+
 ``` rails s ```
 
 Then navigate to http://localhost:3000 and explore away!
