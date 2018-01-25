@@ -1,7 +1,7 @@
 # Toolshare README
 
 ### Description
-Toolshare is a Ruby on Rails application built for Flatiron School's third module by @dansbands, @georgelgore, and @dansbands. The application is a platform for New Yorkers to rent tools from Toolshare. The app features:
+Toolshare is a Ruby on Rails application built for Flatiron School's third module by Paul Kristapovich (https://github.com/pawlkris), George Gore (https://github.com/georgelgore), and Dan O'Dea(https://github.com/dansbands). The application is a platform for New Yorkers to rent tools from Toolshare. The app features:
 
 * Full CRUD functionality
 * PostgreSQL Database
